@@ -13,15 +13,19 @@
       background-color: rgb(65, 179, 255);
       /* light blue */
       color: #ffffff;
+   /*   background-image: url("https://www.velocis.in/sites/default/files/inner-banner/Cloud-Web-Banner_0.jpg");
+   */  
+   background-image: url("https://images.contentstack.io/v3/assets/bltefdd0b53724fa2ce/blt845e2010782ff438/5ffe11861ae93152b725f655/blog-banner-cloud-azure.png");
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
 
     .bg-2 {
       background-color: rgb(251, 251, 251);
       /* for browsers that don't support images */
-      background-image: url("spring-cloud.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+
     }
 
     .bg-3 {
@@ -42,99 +46,115 @@
 
 <body>
 
-  <div class="container-fluid bg-1 text-center" id="title">
-    <h1 style="font-size:70px">Azure Subscription Builder</h1>
+  <div class="container-fluid bg-1 text-left" id="title">
+    <h1 style="font-size:70px">EA Subscription Vending</h1>
     <hr>
-    <p style="font-size:20px">Welcome to the Azure Subscription Builder Service! We are excited to provide you a way
-      to provision secure and policy compliant Azure Subscriptions. Enjoy!</p>
+    <p style="font-size:20px">Create a new Subscription under the EA Agreement</p>
   </div>
 
   <div class="container-fluid bg-2 text-center" id="body">
     <div class="col-sm-6" id="variables">
-      <h2>Required Input Variables:</h2>
-      <p>To get started just fill in the following values and click the "Submit" button:</p>
+      <h2>Configuration Options:</h2>
+      <p></p>
       <form class="form-horizontal" id="intake">
+        <div class="form-group">
+          <label class="control-label col-sm-5" for="pat"></label>
+          <div class="col-sm-4">
+            <input type="password" class="form-control" id="pat" placeholder="github token" name="pat" required>
+          </div>
+        </div>
         <div class="form-group">
           <label class="control-label col-sm-5" for="billingAccount">BBilling Account:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="billingAccount" placeholder="87561154" name="billingAccount" disabled>
+            <input type="text" class="form-control" id="billingAccount" placeholder="87561154" name="billingAccount" value="87561154" disabled>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-5" for="enrolmentAccount">Enrolment Account:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="enrolmentAccount" placeholder="311200" name="enrolmentAccount" disabled>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-5" for="ownerEmail">Owner Email:</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="ownerEmail" placeholder="paul.kelleher@contino.io" name="ownerEmail">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-5" for="applyBudget">Apply Budget:</label>
-          <div class="col-sm-4">
-            <input type="checkbox" class="form-control" id="applyBudget" placeholder="Apply Budget" name="applyBudget">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-5" for="applyBudget">Apply Management Group:</label>
-          <div class="col-sm-4">
-            <input type="checkbox" class="form-control" id="applyManagementGroup" placeholder="applyManagementGroup" name="applyManagementGroup">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-5" for="applyBudget">Create Automation Repo:</label>
-          <div class="col-sm-4">
-            <input type="checkbox" class="form-control" id="applyBudget" placeholder="Apply Budget" name="applyBudget">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-5" for="applyBudget">Create Automation Account:</label>
-          <div class="col-sm-4">
-            <input type="checkbox" class="form-control" id="applyManagementGroup" placeholder="applyManagementGroup" name="applyManagementGroup">
+            <input type="text" class="form-control" id="enrolmentAccount" placeholder="311200" name="enrolmentAccount" value="311200" disabled>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-5" for="location">Location:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="location" placeholder="Enter Azure Region" name="location">
+            <select id="location" name="location" style="width:200px">
+              <option value="uksouth">uksouth</option>
+              <option value="ukwest">ukwest</option>
+            </select>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-5" for="devTestSubCount">No. of DevTest Subscriptions:</label>
+          <label class="control-label col-sm-5" for="ownerEmail">Owner Email:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="devTestSubCount" placeholder="Enter desired number of dev/test subscriptions"
-              name="devTestSubCount">
+            <input type="email" class="form-control" id="ownerEmail" placeholder="paul.kelleher@contino.io" name="ownerEmail" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-5" for="prodSubCount">No. of Production Subscriptions:</label>
+          <label class="control-label col-sm-5" for="applyBudget">Apply Budget:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="prodSubCount" placeholder="Enter desired number of production subscriptions"
-              name="prodSubCount">
+            <select id="applyBudget" name="applyBudget" style="width:200px">
+              <option value="none"></option>
+              <option value="false">false</option>
+              <option value="true">true</option>
+            </select>                 
           </div>
         </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-5" for="managementGroup">managementGroup :</label>
+          <div class="col-sm-4">
+            <select id="managementGroup" name="managementGroup" style="width:200px">
+              <option value="none"></option>
+              <option value="ROOT">Root Management Group</option>
+              <option value="Contino">Contino</option>
+              <option value="DEV/Test">Devtest</option>
+
+            </select>                    
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-5" for="createAutomation">Create Automation:</label>
+          <div class="col-sm-4">
+            <select id="createAutomation" name="createAutomation" style="width:200px">
+              <option value="none"></option>
+              <option value="repo">create linked github repository</option>
+              <option value="sp">create linked service principal</option>
+              <option value="enableall">create and enable automation </option>
+              <option value="disableall">create but disable automation </option>
+
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-5" for="expiry">Expiry:</label>
+          <div class="col-sm-4">
+            <input type="date" id="expiry" name="expiry" style="width:200px">
+
+
+            </select>
+          </div>
+        </div>
+
+       
         <div class="form-group">
           <div class="col-sm-offset-4 col-sm-4">
             <b id="submitButton" href="#" class="btn btn-default btn-md" align="center" style="color:blue;width:50%"
-              onclick="clearResults(this);displayValues(this)">Submit</b>
+              onclick="callGithub(this)">Submit</b>
           </div>
         </div>
       </form>
     </div>
-    <div class="col-sm-6" id="build">
-      <h2>Review Your Selections before Deployment:</h2>
-      <div id="output"></div>
-      <a id="cancelButton" href="#" class="btn btn-default btn-md" align="center" style="color:red;width:20%"
-        onclick="cancel(this)">Cancel</a>
-      <b id="buildButton" href="#" class="btn btn-default btn-md hidden" align="center" style="color:green;width:20%"
-        onclick="buildValues(this);">BUILD</b>
+    <div class="col-sm-1" id="build">
+      <h2>Information:</h2>
+      <div id="output" class="container-fluid bg-2 text-left">
+        pk
+      </div>
+
     </div>
   </div>
 
-  <div class="container-fluid bg-3 text-center" id="results" style="height:300px">
+  <div class="container-fluid bg-3 text-center" id="results" style="height:100px">
     <div id="apiresults"></div>
     <div id="apiresponse"></div>
   </div>
@@ -172,26 +192,33 @@
       document.getElementById('output').innerHTML = op;
     }
 
-    function buildValues(el) {
-      let billingAccount = document.getElementById('bu').value;
+    function callGithub(el) {
+      let bearer = 'Bearer ';
+      let pat = document.getElementById('pat').value;
+      let authToken = bearer.concat(pat);
+      let billingAccount = document.getElementById('billingAccount').value;
+      let enrolmentAccount = document.getElementById('enrolmentAccount').value;
+      let ownerEmail = document.getElementById('ownerEmail').value;
+      let applyBudget = document.getElementById('applyBudget').value;
+      let managementGroup = document.getElementById('managementGroup').value;
+      let createAutomation = document.getElementById('createAutomation').value;
+      let createRepo = "true";
       let location = document.getElementById('location').value;
-      let devTestSubCount = document.getElementById('devTestSubCount').value;
-      let prodSubCount = document.getElementById('prodSubCount').value;
-      let blueprintName = "sub-poc-blueprint";
-      fetch('LogicAppURL', {
+      let expiry = document.getElementById('expiry').value;
+
+
+
+      formData = JSON.stringify([{billingAccount: billingAccount, enrolmentAccount: enrolmentAccount, ownerEmail: ownerEmail, applyBudget: applyBudget, managementGroup: managementGroup, createAutomation: createAutomation, location: location, expiry: expiry}])
+      var encodedString = btoa(formData);
+      fetch('https://api.github.com/repos/pknw1-example-business/v1-0001-com-ubuntu-minimal-bionic-cis019687/dispatches', {
         method: 'POST',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
+          'Authorization': authToken
         },
-        body: JSON.stringify([{
-          billingAccount: billingAccount,
-          location: location,
-          devTestSubCount: devTestSubCount,
-          prodSubCount: prodSubCount,
-          blueprintName: blueprintName
-        }])
+        body: JSON.stringify({event_type: "hello", "client_payload": {"encoded": encodedString}})
       })
-        .then((res) => processResponse(res))
+      .then((res) => processResponse(res))
       document.getElementById('intake').reset();
       document.getElementById('output').innerHTML = "";
       document.getElementById('submitButton').removeClass('hidden');
@@ -236,4 +263,6 @@
 </body>
 
 </html>
+
+
 
